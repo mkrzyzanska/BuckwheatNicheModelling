@@ -14,6 +14,25 @@ require(XML)
 library(classInt)
 ```
 
+    Warning message:
+    "package 'rgdal' was built under R version 3.4.4"Loading required package: sp
+    Warning message:
+    "package 'sp' was built under R version 3.4.4"rgdal: version: 1.3-6, (SVN revision 773)
+     Geospatial Data Abstraction Library extensions to R successfully loaded
+     Loaded GDAL runtime: GDAL 2.2.3, released 2017/11/20
+     Path to GDAL shared files: D:/Programs/R/R-3.4.1/library/rgdal/gdal
+     GDAL binary built with GEOS: TRUE 
+     Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+     Path to PROJ.4 shared files: D:/Programs/R/R-3.4.1/library/rgdal/proj
+     Linking to sp version: 1.3-1 
+    Warning message:
+    "package 'raster' was built under R version 3.4.4"Warning message:
+    "package 'maptools' was built under R version 3.4.4"Checking rgeos availability: TRUE
+    Loading required package: XML
+    Warning message:
+    "package 'XML' was built under R version 3.4.4"Warning message:
+    "package 'classInt' was built under R version 3.4.4"
+
 
 ```R
 nn=1
@@ -31,6 +50,7 @@ continents <- readOGR(dsn = "raw_data\\continent_shapefile", layer = "continent"
 basemap <- brick("raw_data\\NE2_50m_SR_W\\NE2_50M_SR_W\\NE2_50M_SR_W.tif")
 ### Add the map with rivers
 rivers <- readOGR(dsn = "raw_data\\majorrivers_0_0", layer = "MajorRivers")
+china<-subset(borders,borders$SOVEREIGNT=="China")
 ```
 
     OGR data source with driver: ESRI Shapefile 
@@ -139,7 +159,7 @@ dev.off()
 <strong>png:</strong> 2
 
 
-## Load the sites with Fagopyrum pollen
+## Load all sites with pollen/archaeological sites
 
 
 ```R
@@ -359,14 +379,16 @@ borders_cropped <- crop(borders, extent(china))
 ```R
 ### Save clipped data as GeoTiffs:
 path2layers<-"data\\buckwheat_production\\clipped\\"
-writeRaster(clipped_prd,filename=paste(path2layers,names(clipped_prd),sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
+#writeRaster(clipped_prd,filename=paste(path2layers,names(clipped_prd),sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
+layers<-list.files(path=path2layers,pattern='tif$',full.names=TRUE)
+clipped_prd<-stack(layers)
 ```
 
 
 ```R
-nn=2
-path2image<-paste("images//01_",nn,"_buckwheat_production_clipped.png",sep="")
-png(path2image, units="in", width=8, height=6.72, res=1200)
+#nn=2
+#path2image<-paste("images//01_",nn,"_buckwheat_production_clipped.png",sep="")
+#png(path2image, units="in", width=8, height=6.72, res=1200)
 #### Plot data quality on the map with countries boarders:
 par(mfrow=c(3,2), mar=c(0,2,2,2), oma=c(2,0,2,0), xpd=NA)
 
@@ -395,11 +417,11 @@ for(i in 1:6){
     }
 }
 
-dev.off()
+#dev.off()
 ```
 
 
-<strong>png:</strong> 2
+![png](output_16_0.png)
 
 
 
@@ -452,8 +474,203 @@ path2layers<-"data\\buckwheat_production\\china\\"
 writeRaster(masked_prd,filename=paste(path2layers,names(masked_prd),sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
 ```
 
-# Environmental data:
 
+```R
+china_counties <- readOGR(dsn = "raw_data\\CHN_adm", layer = "CHN_adm3")
+```
+
+    OGR data source with driver: ESRI Shapefile 
+    Source: "G:\My Drive\SDM_China\raw_data\CHN_adm", layer: "CHN_adm3"
+    with 2409 features
+    It has 13 fields
+    Integer64 fields read as strings:  ID_0 ID_1 ID_2 ID_3 
+    
+
+
+```R
+plot(masked_prd[[2]])
+```
+
+
+```R
+i=4
+bp<-unique(breakpoints[[5]]$brks)
+map=masked_prd[[i]]
+plot(map,main=names[i],axes=FALSE,box=FALSE,legend=FALSE,ext=extent(china),breaks=bp,col = my_col)
+plot(china_counties,add=TRUE)
+```
+
+
+![png](output_22_0.png)
+
+
+# Environmental data (for 120K)
+
+
+```R
+require("ncdf4")
+require("lattice")
+require("ggplot2")
+## Loads the file
+file <- "raw_data//8327081//LatePleistoceneHolocene_Climate.nc"
+```
+
+    Loading required package: ncdf4
+    Loading required package: lattice
+    Loading required package: ggplot2
+    Warning message:
+    "package 'ggplot2' was built under R version 3.4.4"
+
+
+```R
+env_nc      <- ncdf4::nc_open(file)
+longitude   <- ncdf4::ncvar_get(env_nc, "longitude")
+latitude    <- ncdf4::ncvar_get(env_nc, "latitude")
+years       <- ncdf4::ncvar_get(env_nc, "time")
+months      <- ncdf4::ncvar_get(env_nc, "month")
+temperature <- ncdf4::ncvar_get(env_nc, "temperature")
+biome       <- ncdf4::ncvar_get(env_nc, "biome")
+ncdf4::nc_close(env_nc)
+```
+
+
+```R
+my_year      <- -10000;   # 10,0000 BP
+my_month     <- 6;        # June
+my_longitude <- 0.1218;
+my_latitude  <- 52.2053;  # Cambridge (UK)
+```
+
+
+```R
+p1 <- print(lattice::levelplot(biome[,,years == my_year], main = "Biome distribution, 10000 BP"))
+p2 <- print(lattice::levelplot(temperature[,,months == my_month,years == my_year], main = "Mean June temperature, 10000 BP"))
+```
+
+
+![png](output_27_0.png)
+
+
+
+![png](output_27_1.png)
+
+
+
+```R
+### Get the list of variables used
+summary(env_nc$var)
+### npp is a net primary productivity estimate
+### lai - leaf area index
+```
+
+
+                      Length Class  Mode
+    temperature       22     ncvar4 list
+    precipitation     22     ncvar4 list
+    cloud             22     ncvar4 list
+    relative_humidity 22     ncvar4 list
+    wind_speed        22     ncvar4 list
+    min_temperature   22     ncvar4 list
+    max_temperature   22     ncvar4 list
+    biome             22     ncvar4 list
+    npp               22     ncvar4 list
+    lai               22     ncvar4 list
+    BIO1              22     ncvar4 list
+    BIO4              22     ncvar4 list
+    BIO5              22     ncvar4 list
+    BIO6              22     ncvar4 list
+    BIO7              22     ncvar4 list
+    BIO8              22     ncvar4 list
+    BIO9              22     ncvar4 list
+    BIO10             22     ncvar4 list
+    BIO11             22     ncvar4 list
+    BIO12             22     ncvar4 list
+    BIO13             22     ncvar4 list
+    BIO14             22     ncvar4 list
+    BIO15             22     ncvar4 list
+    BIO16             22     ncvar4 list
+    BIO17             22     ncvar4 list
+    BIO18             22     ncvar4 list
+    BIO19             22     ncvar4 list
+
+
+
+```R
+str(years)
+str(longitude)
+str(latitude)
+str(months)
+str(temperature)
+```
+
+     int [1:72(1d)] -120000 -118000 -116000 -114000 -112000 -110000 -108000 -106000 -104000 -102000 ...
+     num [1:720(1d)] -180 -179 -179 -178 -178 ...
+     num [1:300(1d)] -59.8 -59.2 -58.8 -58.2 -57.8 ...
+     int [1:12(1d)] 1 2 3 4 5 6 7 8 9 10 ...
+     num [1:720, 1:300, 1:12, 1:72] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN ...
+    
+
+
+```R
+holocene_years <- years[66:72]
+```
+
+
+```R
+env_nc      <- ncdf4::nc_open(file)
+BIO9 <- ncdf4::ncvar_get(env_nc, "BIO9")
+BIO10 <- ncdf4::ncvar_get(env_nc, "BIO10")
+ncdf4::nc_close(env_nc)
+```
+
+
+```R
+str(BIO9)
+```
+
+     num [1:720, 1:300, 1:72] NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN ...
+    
+
+
+```R
+lonID <- which.min(abs(longitude - my_longitude));
+latID <- which.min(abs(latitude - my_latitude));
+yearID <- which.min(abs(years - my_year));
+```
+
+
+```R
+p3 <- ggplot2::qplot(months, temperature[lonID,latID,,yearID], xlab = "Month", ylab = "Mean temperature",  geom=c("point", "line"))
+```
+
+
+```R
+p3
+```
+
+
+
+
+![png](output_35_1.png)
+
+
+
+```R
+mean_annual_temperature <- apply(temperature, c(1,2,4), mean)
+p4 <- ggplot2::qplot(years, mean_annual_temperature[lonID,latID,], xlab = "Year", ylab = "Temperature", main = "Mean annual temperature time series, Cambridge (UK)", geom=c("point", "line"))
+gridExtra::grid.arrange(p1, p2, p3, p4, nrow = 2)
+```
+
+
+![png](output_36_0.png)
+
+
+
+```R
+
+```
+
+# Environmental data: (bioclim website)
 
 
 ```R
@@ -486,7 +703,7 @@ plot(env)
 ```
 
 
-![png](output_23_0.png)
+![png](output_41_0.png)
 
 
 
@@ -510,7 +727,7 @@ plot(clipped_env)
 ```
 
 
-![png](output_26_0.png)
+![png](output_44_0.png)
 
 
 
@@ -519,10 +736,37 @@ plot(masked_env)
 ```
 
 
-![png](output_27_0.png)
+![png](output_45_0.png)
 
+
+### Past Environmental data:
 
 
 ```R
+path2env<-"raw_data\\environmental\\past\\bioclim_variables\\"
+layers<-list.files(path=path2env,pattern='tif$',full.names=TRUE)
+env<-stack(layers)
+```
 
+
+```R
+clipped_env<-crop(env, extent(china), snap="in")
+masked_env<-mask(clipped_env, china)
+```
+
+
+```R
+path2layers<-"data\\environmental\\past\\clipped\\"
+writeRaster(clipped_env,filename=paste(path2layers,names(clipped_env),sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
+
+path2layers<-"data\\environmental\\past\\china\\"
+writeRaster(masked_env,filename=paste(path2layers,names(masked_env),sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
+```
+
+
+```R
+### Possible sources of soil data:
+
+https://soilgrids.org/#!/?layer=ORCDRC_M_sl2_250m&vector=1
+http://globalchange.bnu.edu.cn/research/data
 ```
