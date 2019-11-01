@@ -1,5 +1,6 @@
 data/*
 raw_data/*
 stan_server/*
+stan_models/*
 
 
