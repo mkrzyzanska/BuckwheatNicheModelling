@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  25 OCT 2019 09:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.10.27)  25 OCT 2019 14:19
 entering extended mode
 **./template.tex
 (template.tex
@@ -112,7 +112,7 @@ Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 \Gin@req@height=\dimen114
 \Gin@req@width=\dimen115
 )
-No file template.aux.
+(template.aux)
 \openout1 = `template.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
@@ -129,6 +129,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
 LaTeX Font Info:    ... okay on input line 62.
+
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
 ("D:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
@@ -198,28 +199,16 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 93.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 93.
-
-LaTeX Warning: Citation `RefB' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Citation `RefJ' on page 1 undefined on input line 108.
-
-
-LaTeX Warning: Reference `sec:1' on page 1 undefined on input line 112.
-
 Package epstopdf Info: Source file: <example.eps>
 (epstopdf)                    date: 2008-06-12 09:01:30
 (epstopdf)                    size: 304 bytes
 (epstopdf)             Output file: <example-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-10-25 09:20:20
+(epstopdf)                    size: 2445 bytes
 (epstopdf)             Command: <epstopdf --outfile=example-eps-converted-to.pd
 f example.eps>
 (epstopdf)             \includegraphics on input line 122.
-runsystem(epstopdf --outfile=example-eps-converted-to.pdf example.eps)...execut
-ed (allowed).
-
-Package epstopdf Info: Result file: <example-eps-converted-to.pdf>
-(epstopdf)                    date: 2019-10-25 09:20:20
-(epstopdf)                    size: 2445 bytes.
+Package epstopdf Info: Output file is already uptodate.
 <example-eps-converted-to.pdf, id=1, 202.7575pt x 202.7575pt>
 File: example-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -241,32 +230,26 @@ File: example-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: example-eps-converted-to.pdf used on input line 132.
 (pdftex.def)             Requested size: 253.5pt x 253.50812pt.
  [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] [2 <./example-eps-conv
-erted-to.pdf>] [3] (template.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+erted-to.pdf>] [3] (template.aux) ) 
 Here is how much of TeX's memory you used:
- 2194 strings out of 493323
- 32585 string characters out of 3139065
- 89843 words of memory out of 3000000
+ 2196 strings out of 493323
+ 32609 string characters out of 3139065
+ 89899 words of memory out of 3000000
  5731 multiletter control sequences out of 15000+200000
  10088 words of font info for 35 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,7n,25p,238b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-<D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><D:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Program Files/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><D:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr8.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.
-pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on template.pdf (3 pages, 117931 bytes).
+<D:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmbsy10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmbx12.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx8.p
+fb><D:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmti10.pfb>
+Output written on template.pdf (3 pages, 117888 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
