@@ -1,7 +1,6 @@
 data/buckwheat_production/*
 data/environmental/*
 raw_data/*
-stan_models/*
 outputs/models/*
 manuscript/*
 
