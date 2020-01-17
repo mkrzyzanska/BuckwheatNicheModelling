@@ -1,4 +1,4 @@
-// Stan model for simple linear regression
+// Stan parabolic model with 5 predictors
 
 data {
  int < lower = 1 > N; // Sample size is an integer with the lowest value of 1 (i.e. positive)

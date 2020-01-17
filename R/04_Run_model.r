@@ -1,6 +1,7 @@
 
 ### Set working directory:
 setwd("/export/home/mk843/mnt/")
+#setwd("G:\\My Drive\\SDM_China\\")
 
 ### Define the model to run
 mname<-'parabolic_simple_iCAR'
@@ -9,9 +10,9 @@ stan_model<-paste('stan_models/',mname,'.stan',sep="")
 ### Define model parameters:
 
 warmup=2000
-iter=10000
-chains=4
-cores=4
+iter=50000
+chains=5
+cores=5
 thin=1
 
 ### Define the path in which to save models:
@@ -35,9 +36,9 @@ N<-nrow(china@data)
 # Defince stan data:
 y=china@data$logArea
 x1=china@data$BIO10_sd
-x2=china@data$BIO11_sd
-x3=china@data$BIO19_sd
-x4=china@data$BIO4_sd
+x2=china@data$BIO17_sd
+x3=china@data$BIO4_sd
+x4=china@data$BIO9_sd
 x5=china@data$npp_sd
 
 #Format the data
