@@ -7,3 +7,4 @@ manuscript/*
 
 
 outputs/05_01_Posterior_Predictions_parabolic_simple_iCAR.csv
+stan_models/parabolic_interactions_iCAR.stan
