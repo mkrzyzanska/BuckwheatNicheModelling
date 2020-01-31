@@ -63,7 +63,7 @@ predictors<-rbindlist(prd_list)
 
 ### Calculate the correlation coefficient matrick
 pearson<-cor(predictors, method = "pearson",use="complete.obs")
-write.csv(pearson, file=path2pearson,row.names=FALSE)
+write.csv(pearson, file=path2pearson,row.names=TRUE)
 
 ### Create a graph showing the correlation coefficients
 ### Set color palette
@@ -95,11 +95,9 @@ var.cluster <- hclust(1-var.dist)
 dd<-as.dendrogram(var.cluster)
 
 ## Plot the dendrogram showing the clusters of higly correlated predictors:
-labels_colors(dd) <- c("black","red","black","red","black","black","red","black","black","black","black","red","black","black","red","black")
-tiff(path2dendrogram, units="in", width=6, height=8, res=600,bg = "transparent")
+labels_colors(dd) <- c("black","red","black","red","black","black","red","black","black","black","red","black","black","black","red","black")
+tiff(path2dendrogram, units="in", width=6, height=8, res=100,bg = "transparent")
 par(mar=c(20,4,1,0))
 plot(dd, main="",ylab="distance", xlab="",sub=NA, cex=0.75,col=c("red","blue","black","yellow"))
 abline(h=0.25, lty=2, lwd=2)
 dev.off()
-
-

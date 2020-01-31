@@ -37,7 +37,6 @@ files <- unzip(paste(fname,".zip",sep=""),exdir="raw_data")
 file.remove(paste(fname,".zip",sep=""))
 
 ## Get all the Geotifs with buckwehat production
-### This loads the data
 #List all layers related to buckwheat production:
 layers<-list.files(path=fname,pattern='tif$',full.names=TRUE)
 #Stack all layers:
@@ -46,7 +45,7 @@ prd<-stack(layers)
 names <- c("Data quality: harvested area","Data quality: yield","Harvested area: fractional","Harvested area: hectares",
             "Production in tons","Yield (tons per hectare)")
 
-### Download the data about the administrative division of China, so that it can be used to subset the raster maps
+### Download the dataset with the administrative division of China, so that it can be used to subset the raster maps
 url<-"http://biogeo.ucdavis.edu/data/diva/adm/CHN_adm.zip"
 # Define the directory to which the files will be extracted
 fname <- "raw_data//CHN_adm"
@@ -58,7 +57,7 @@ files <- unzip(paste(fname,".zip",sep=""),exdir=fname)
 # Removes the zipped folder:#
 file.remove(paste(fname,".zip",sep=""))
 
-### Load the shapefile with the borer of China
+### Load the shapefile with the borders of China
 china <- readOGR(dsn = fname, layer = "CHN_adm0")
 
 ### Download the shapefile of the continents as well:
@@ -72,8 +71,10 @@ files <- unzip(paste(fname,".zip",sep=""),exdir=fname)
 # Removes the zipped folder:#
 file.remove(paste(fname,".zip",sep=""))
 
+### Load the shapefile with the outline of the continents
 continents <- readOGR(dsn = fname, layer = "ne_50m_land")
 
+#Plot data on bucwheat production
 #This prepares data for visualisation
 ## Define breakpoints for each of the map scales
 breakpoints <- lapply(as.list(prd),function(x){return(classIntervals(x[!is.na(x)], n = 50, style = "quantile"))})
@@ -119,7 +120,7 @@ legend(x='topright', legend = c("No data", "country", "interpolated\n(within 2°
 
 #dev.off()
 
-# Note that is has the same projection as the prd maps, so it does not need to be reprojected
+# Note that china has the same projection as the prd maps, so it does not need to be reprojected
 # Clip the data to the extent of china
 clipped_prd<-crop(prd, extent(china), snap="out")
 ### Save clipped data as GeoTiffs:
@@ -128,6 +129,7 @@ writeRaster(clipped_prd,filename=paste(path2clipped_china,names(prd),".tif",sep=
 masked_prd<-mask(clipped_prd, china)
 writeRaster(masked_prd,filename=paste(path2masked_china,names(prd),".tif",sep=""),format="GTiff", overwrite=TRUE,bylayer=TRUE)
 
+# Plot clipped data
 #nn=2
 #path2image<-paste("images//01_",nn,"_buckwheat_production_clipped.png",sep="")
 #png(path2image, units="in", width=8, height=6.72, res=1200)
@@ -161,6 +163,7 @@ for(i in 1:6){
 
 #dev.off()
 
+## Plot cropped data
 nn=3
 path2image<-paste("images//01_",nn,"_buckwheat_production_china.png",sep="")
 png(path2image, units="in", width=8, height=6.72, res=1200)

@@ -4,13 +4,13 @@ setwd("/export/home/mk843/mnt/")
 #setwd("G:\\My Drive\\SDM_China\\")
 
 ### Define the model to run
-mname<-'parabolic_simple_iCAR'
+mname<-'parabolic_interactions_iCAR'
 stan_model<-paste('stan_models/',mname,'.stan',sep="")
 
 ### Define model parameters:
 
 warmup=2000
-iter=50000
+iter=10000
 chains=5
 cores=5
 thin=1
@@ -46,7 +46,7 @@ stan_data <- list(N = N, x1 = x1, y = y,x2=x2,x3=x3,x4=x4,x5=x5,N_edges=N_edges,
 
 print("Fitting the model")
 
-fit <- stan(file = stan_model, data = stan_data, warmup = warmup, iter = iter, chains = chains, cores = cores, thin = thin)
+fit <- stan(file = stan_model, data = stan_data, warmup = warmup, iter = iter, chains = chains, cores = cores, thin = thin,control = list(max_treedepth = 15))
 
 print("Saving the model")
 saveRDS(fit, paste(path2models, mname,".rds",sep="")) 

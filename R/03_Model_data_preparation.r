@@ -8,10 +8,11 @@ library(rgdal)
 library(raster)
 ### (For rbindlist)
 library(data.table)
-### To calculate the area of the polygon
-require(geosphere)
 ### Calculates the adjacency matrix:
 library(spdep)
+### To calculate the area of the polygon
+require(geosphere)
+
 
 ### Set the paths for loading data
 # Masked data on buckwheat production in China (masked to keep the data consistent:
@@ -31,7 +32,7 @@ china<-readOGR(dsn = "raw_data\\CHN_adm", layer = "CHN_adm3")
 prd_layers<-list.files(path=path2prd,pattern='tif$',full.names=TRUE)
 layers<-list.files(path=path2env,pattern='tif$',full.names=TRUE)
 ### Get only the environmental layers that are not autocorrelated:
-env_layers<-subset(layers,lapply(layers, grepl,pattern="BIO4|BIO10|BIO11|BIO19|npp")==TRUE)
+env_layers<-subset(layers,lapply(layers, grepl,pattern="BIO4|BIO9|BIO10|BIO17|npp")==TRUE)
 prd<-stack(prd_layers)
 env<-stack(env_layers)
 
@@ -71,6 +72,32 @@ buffer.mean<- rbindlist(buffer.mean)
 r.mean[mc,] <-buffer.mean
 
 china@data <- data.frame(china@data, r.mean)
+
+### Get the names of the environmental variables
+env_vars<-names(env)
+
+#### Get the mean and standard deviation of all the bioclimatic variables that will be used in a model:
+stats<-lapply(env_vars,function(x){
+past_layers<-list.files(path=paste(path2past,x,"\\masked\\",sep=""),pattern='tif$',full.names=TRUE)
+var_stack <- stack(past_layers,subset(env,x))
+vals<-as.vector(values(var_stack))
+mean<-mean(vals, na.rm=TRUE)
+sd<-sd(vals, na.rm=TRUE)
+return(as.data.frame(cbind(mean,sd)))})
+
+# Get the mean and standard deviations of the environmental variables into a dataframe
+stats<-rbindlist(stats)
+# Name the rows according to the names of the environmental variables
+rownames(stats) <- env_vars
+# Save the mean and standard deviation used for scaling and centering of the variables:
+write.csv(stats, file=path2stats)
+
+### Calculate standardised values for all columns, using the obtained mean and standard deviation
+new_columns<-scale(china@data[,env_vars],center=stats$mean,scale=stats$sd)
+colnames(new_columns)<-paste(env_vars,"sd",sep="_")
+
+### Add standardised columns to the spatial polygons data frame:
+china@data <- data.frame(china@data,new_columns)
 
 ## Extract raster values of the cells with data on buckwheat production for each county in China
  r.vals <- extract(prd,china )
@@ -119,32 +146,6 @@ sort(unique(china@data$ProdHa))[2]
 ### to all of the numbers to avoind zeros:
 china@data$logArea <- log(china@data$AreaPr+1e-11 )
 china@data$logProd <- log(china@data$ProdHa+1e-11)
-
-### Get the names of the environmental variables
-env_vars<-names(env)
-
-#### Get the mean and standard deviation of all the bioclimatic variables that will be used in a model:
-stats<-lapply(env_vars,function(x){
-past_layers<-list.files(path=paste(path2past,x,"\\masked\\",sep=""),pattern='tif$',full.names=TRUE)
-var_stack <- stack(past_layers,subset(env,x))
-vals<-as.vector(values(var_stack))
-mean<-mean(vals, na.rm=TRUE)
-sd<-sd(vals, na.rm=TRUE)
-return(as.data.frame(cbind(mean,sd)))})
-
-# Get the mean and standard deviations of the environmental variables into a dataframe
-stats<-rbindlist(stats)
-# Name the rows according to the names of the environmental variables
-rownames(stats) <- env_vars
-# Save the mean and standard deviation used for scaling and centering of the variables:
-write.csv(stats, file=path2stats)
-
-### Calculate standardised values for all columns, using the obtained mean and standard deviation
-new_columns<-scale(china@data[,env_vars],center=stats$mean,scale=stats$sd)
-colnames(new_columns)<-paste(env_vars,"sd",sep="_")
-
-### Add standardised columns to the spatial polygons data frame:
-china@data <- data.frame(china@data,new_columns)
 
 ### Write the Spatial Polygon data frame to a file:
 writeOGR(obj=china, dsn="data\\china_data", layer="china_data", driver="ESRI Shapefile")
