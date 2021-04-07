@@ -15,8 +15,13 @@ Data directory contains a dataset with the locations of fagopyrum macro and micr
 
 The script is divided into 5 notebooks:
 
- 1. [Data extraction](notebooks/01_Data_extraction.ipynb): downloads and extract relevant datasets and prepares the following plots:
+ 1. [Data extraction](notebooks/01_Data_extraction.ipynb): downloads and extract relevant datasets and prepares the following plots and tables:
      - [Buckwheat production in the world (ESM_4)](outputs/ESM_4.tiff)
+     - [Buckwheat production in China (ESM 5)](outputs/ESM_5.fiff)
+     - [Names of environmental predictors](outputs/01_01_Predictor_variables.csv)
+     - [Fagopyrum pollen diagrams (ESM_1)](outputs/ESM_1.pdf) from the pollen database compiled by [Cao et al. 2013](https://doi.org/10.1016/j.revpalbo.2013.02.003)
+     - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1). ](outputs/Fig1.tiff)
+2. 
 
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
