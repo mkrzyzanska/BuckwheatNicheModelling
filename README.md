@@ -27,6 +27,8 @@ The script is divided into 5 notebooks:
 3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of environmnetla conditions for China:
     - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
     - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff),[BIO4 (ESM 12d)](outputs/ESM_12d.tiff),[NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
+    
+4. [Run model](notebooks/04_Run_model): runs the stun model
 
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
