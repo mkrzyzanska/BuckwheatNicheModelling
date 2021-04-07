@@ -35,16 +35,10 @@ The script is divided into 7 notebooks:
     - [Parameter estimates](outputs/06_01_Parameters_posterior.tiff) and their [density plot](outputs/06_02_Parameters_posterior_density.tiff)
     - Parameter pairs plot
     - [Counterfactual plots (Figure 2)](outputs/Fig2.tiff)
-    - [Posterior predictions check (ESM 10](outputs/ESM_10.pdf)
+    - [Posterior predictions check (ESM 10)](outputs/ESM_10.pdf)
     
-
-csv file with the locations and matadata for buck macro and microfossils found in China 
-
- Codes and data for preparing Buckwheat Species Distribution Models for China
- 
- Packages to install:
- 
- install.packages("here",
- 
- Codes includes additional functions 
-
+7. [Predictions_plots](notebooks/07_Predictions_plots.ipynb) Produces plots of predictions and difference between the predictions and observations:
+    - [Distribution of prediction errors and confidence intervals (ESM 9)](outputs/ESM_9.pdf)
+    - [Maps with posterior predictions for the present, compared against observed log area under cultivation and confidence intervals (ESM 11)](outputs/ESM_11.tiff)
+    - [Maps with predictions of climate suitability over the past 8000 years (Figure 4)](outputs/Fif4.tiff)
+    - [Predicted log area under cultivation for that past 8000 years, overlayed with locations containing past buckwheat record (Figure 3)](outptus/Fig3.tiff) 
