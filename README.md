@@ -28,7 +28,7 @@ The script is divided into 7 notebooks:
     - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
     - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff), [BIO4 (ESM 12d)](outputs/ESM_12d.tiff), [NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
     
-4. [Run model](notebooks/04_Run_model.ipynb): runs the stun model
+4. [Run model](notebooks/04_Run_model.ipynb): runs the stan model
 5. [Posterior predictions calculation](notebooks/05_Posterior_predictions_calculation.ipynb): calculates predicted climate suitability for the present environmental conditions, past (1000-8000 BP and 15 000 BP) and produces counterfactual predictions.
 6. [Model diagnostics](notebooks/06_Model_diagnostics.ipynb): produces [model summary (ESM 8)](outputs/ESM_8.csv) and the plots of model diagnostics:
     - [Traceplots of Markov's chains (ESM 7)](outputs/ESM_7.pdf)
