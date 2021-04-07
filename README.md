@@ -23,7 +23,10 @@ The script is divided into 5 notebooks:
      - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1). ](outputs/Fig1.tiff)
 2. [Predictors autocorrelation analysis](notebooks/02_Predictors_autocorrelation_analysis.ipynb): carries out the analysis of autocorrelation between environmental variables and selects predictors from the clusters of highly correlated variables. It also produces the figures showing autocorrelation:
     - [Correlation plot for environmental variables](outputs/02_02_Predictors_corrplot.tiff)
-    - [Dendrogram with selected variables highlited](outputs/ESM_6.pdf)
+    - [Dendrogram with selected variables highlited (ESM 6)](outputs/ESM_6.pdf)
+3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of environmnetla conditions for China:
+    - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
+    - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff),[BIO4 (ESM 12d)](outputs/ESM_12d.tiff),[NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
 
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
