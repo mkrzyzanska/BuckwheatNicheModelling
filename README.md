@@ -37,7 +37,7 @@ The script is divided into 7 notebooks:
     - [Counterfactual plots (Figure 2)](outputs/Fig2.tiff)
     - [Posterior predictions check (ESM 10)](outputs/ESM_10.pdf)
     
-7. [Predictions_plots](notebooks/07_Predictions_plots.ipynb) Produces plots of predictions and difference between the predictions and observations:
+7. [Predictions plots](notebooks/07_Predictions_plots.ipynb) Produces plots of predictions and difference between the predictions and observations:
     - [Distribution of prediction errors and confidence intervals (ESM 9)](outputs/ESM_9.pdf)
     - [Maps with posterior predictions for the present, compared against observed log area under cultivation and confidence intervals (ESM 11)](outputs/ESM_11.tiff)
     - [Maps with predictions of climate suitability over the past 8000 years (Figure 4)](outputs/Fig4.tiff)
@@ -53,4 +53,8 @@ The script is divided into 7 notebooks:
 install.packages(c("here","rgdal","tmap","ncdf4","stringr","raster","rioja","maptools","prettymapr","data.table","corrplot","dendextend","spdep","geosphere","data.table","RColorBrewer","viridis","rstan","ggplot2","bayesplot","grid","gridExtra","ggridges","matrixStats","rgeos","tidyr","ggbeeswarm","tmap","stringr","sf"))
 ```
 
+## Funding:
+
+
+This research was funded by the a Leverhulme Trust Research Project Grant (ref. RPG-2017-1): *Crops, pollinators and people: the long-term dynamics of a critical symbiosis.*
 
