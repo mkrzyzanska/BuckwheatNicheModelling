@@ -44,7 +44,7 @@ model {
  beta8 ~ normal(0, 1);
  beta9 ~ normal(0, 1);
  beta10 ~ normal(0, 1);
- sigma ~ normal(0.0, 5.0);
+ sigma ~ exponential(0.0, 5.0);
  sum(phi) ~ normal(0, 0.001 * N);
 }
 generated quantities {
