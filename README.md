@@ -5,7 +5,7 @@ This repository contains scripts relevant data and outputs used in the following
 *Krzyzanska. M. Harriet V. Hunt, Enrico R. Crema, Martin K. Jones. 2021. 'Modelling the potential niche of domesticated buckwheat in China: archaeological evidence, environmental constraints, and climate change.'*
 
  
-The repository is organised into four main directories: [data](data), [notebooks](notebooks), [R](R), [stan_models](stan_models) and [outputs](outputs). The [data](data) directory contains data which was compiled for the analysis and is not available online in other places. All the other other data needed for the analysis can be obtained with the script included in this repository. [Notebooks](notebooks) directory includes Jupyter Notebooks written in R with all the scripts for data extraction, and model preparation, as well as scripts for generating figures and and other relevant output files. [R](R) directory contains R scripts with utility functions and plotting themes used in the scripts; [stan_models](stan_models) directory contains the code for the stan model and [outputs](outputs) direcotry contains all of the outputs of the analysis (including intermediary outputs, provided that they don't exceed 100 MB - in which case they can be reproduced with the scripts provided).
+The repository is organised into four main directories: [data](data), [notebooks](notebooks), [R](R), [stan_models](stan_models) and [outputs](outputs). The [data](data) directory contains data which was compiled for the analysis and is not available online in other places. All the other data needed for the analysis can be obtained with the script included in this repository. [Notebooks](notebooks) directory includes Jupyter Notebooks written in R with all the scripts for data extraction, and model preparation, as well as scripts for generating figures and other relevant output files. [R](R) directory contains R scripts with utility functions and plotting themes used in the scripts; [stan_models](stan_models) directory contains the code for the stan model and [outputs](outputs) directory contains all of the outputs of the analysis (including intermediary outputs, provided that they don't exceed 100 MB - in which case they can be reproduced with the scripts provided).
 
 ## [Data](data)
 
@@ -21,10 +21,10 @@ The script is divided into 7 notebooks:
      - [Names of environmental predictors](outputs/01_01_Predictor_variables.csv)
      - [Fagopyrum pollen diagrams (ESM_1)](outputs/ESM_1.pdf) from the pollen database compiled by [Cao et al. 2013](https://doi.org/10.1016/j.revpalbo.2013.02.003)
      - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1)](outputs/Fig1.tiff)
-2. [Predictors autocorrelation analysis](notebooks/02_Predictors_autocorrelation_analysis.ipynb): carries out the analysis of autocorrelation between environmental variables and selects predictors from the clusters of highly correlated variables. It also produces the figures showing autocorrelation:
+2. [Predictors' autocorrelation analysis](notebooks/02_Predictors_autocorrelation_analysis.ipynb): carries out the analysis of autocorrelation between environmental variables and selects predictors from the clusters of highly correlated variables. It also produces the figures showing autocorrelation:
     - [Correlation plot for environmental variables](outputs/02_02_Predictors_corrplot.tiff)
-    - [Dendrogram with selected variables highlited (ESM 6)](outputs/ESM_6.pdf)
-3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of environmnetlal conditions for China:
+    - [Dendrogram with selected variables highlighted (ESM 6)](outputs/ESM_6.pdf)
+3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of 4.	environmental conditions for China:
     - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
     - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff), [BIO4 (ESM 12d)](outputs/ESM_12d.tiff), [NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
     
@@ -56,5 +56,21 @@ install.packages(c("here","rgdal","tmap","ncdf4","stringr","raster","rioja","map
 ## Funding:
 
 
-This research was funded by the a Leverhulme Trust Research Project Grant (ref. RPG-2017-1): *Crops, pollinators and people: the long-term dynamics of a critical symbiosis.*
+This research was funded by the [Leverhulme Trust Research Project Grant (ref. RPG-2017-1): *Crops, pollinators and people: the long-term dynamics of a critical symbiosis.*](https://www.leverhulme.ac.uk/research-project-grants/crops-pollinators-and-people-long-term-dynamics-critical-symbiosis-0)
 
+## External datasets references:
+
+
+*Beyer RM, Krapp M, Manica A (2020) High-resolution terrestrial climate, bioclimate and vegetation for the last 120,000 years. Scientific Data 7:236. https://doi.org/10.1038/s41597-020-0552-1* [dataset](https://figshare.com/articles/dataset/LateQuaternary_Environment_nc/12293345)  
+
+*Cao X, Ni J, Herzschuh U, et al (2013) A late Quaternary pollen dataset from eastern continental Asia for vegetation and climate reconstructions: Set up and evaluation. Review of Palaeobotany and Palynology 194:21–37. https://doi.org/10.1016/j.revpalbo.2013.02.003* 
+
+*[DIVA-GIS](https://www.diva-gis.org/gdata)*  
+
+*Hunt HV, Shang X, Jones MK (2018) Buckwheat: a crop from outside the major Chinese domestication centres? A review of the archaeobotanical, palynological and genetic evidence. Veget Hist Archaeobot. https://doi.org/10.1007/s00334-017-0649-4*  
+
+*Monfreda C, Ramankutty N, Foley JA (2008) Farming the planet: 2. Geographic distribution of crop areas, yields, physiological types, and net primary production in the year 2000: GLOBAL CROP AREAS AND YIELDS IN 2000. Global Biogeochemical Cycles 22:n/a-n/a. https://doi.org/10.1029/2007GB002947* [dataset](http://www.earthstat.org/harvested-area-yield-175-crops/)  
+
+*[@naturalearthdata.com](https://www.naturalearthdata.com/)*  
+
+**Full list of references for buckwheat archaeological records is given in [ESM 3](data/ESM_3.pdf).
