@@ -32,7 +32,7 @@ The script is divided into 7 notebooks:
 5. [Posterior predictions calculation](notebooks/05_Posterior_predictions_calculation.ipynb): calculates predicted climate suitability for the present environmental conditions, past (1000-8000 BP and 15 000 BP) and produces counterfactual predictions.
 6. [Model diagnostics](notebooks/06_Model_diagnostics.ipynb): produces [model summary (ESM 8)](outputs/ESM_8.csv) and the plots of model diagnostics:
     - [Traceplots of Markov's chains (ESM 7)](outputs/ESM_7.pdf)
-    - [Parameter estimates](outputs/06_01_Parameters_posterior.tiff) and their [density plot](06_02_Parameters_posterior_density.tiff)
+    - [Parameter estimates](outputs/06_01_Parameters_posterior.tiff) and their [density plot](outputs/06_02_Parameters_posterior_density.tiff)
     - Parameter pairs plot
     - [Counterfactual plots (Figure 2)](outputs/Fig2.tiff)
     - [Posterior predictions check (ESM 10](outputs/ESM_10.pdf)
