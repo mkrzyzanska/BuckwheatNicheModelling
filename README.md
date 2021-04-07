@@ -51,6 +51,6 @@ The script is divided into 7 notebooks:
 
 ```
 install.packages(c("here","rgdal","tmap","ncdf4","stringr","raster","rioja","maptools","prettymapr","data.table","corrplot","dendextend","spdep","geosphere","data.table","RColorBrewer","viridis","rstan","ggplot2","bayesplot","grid","gridExtra","ggridges","matrixStats","rgeos","tidyr","ggbeeswarm","tmap","stringr","sf"))
+```
 
-'''
 
