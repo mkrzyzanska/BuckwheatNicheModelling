@@ -9,7 +9,7 @@ The repository is organised into four main directories: [data](data), [notebooks
 
 ## [Data](data)
 
-Data directory contains a dataset with the locations of fagopyrum macro and micro remains from China [ESM_2](data/ESM_2.csv), based on [Hunt et al. 2018](https://doi.org/10.1007/s00334-017-0649-4)  In addition to that ([ESM 3](data/ESM_3.pdf)) contains a full list of references to the original publications in which those were publisehd.
+Data directory contains a dataset with the locations of fagopyrum macro and micro remains from China [ESM_2](data/ESM_2.csv), based on [Hunt et al. 2018](https://doi.org/10.1007/s00334-017-0649-4)  In addition to that ([ESM 3](data/ESM_3.pdf)) contains a full list of references to the original publications in which those were published.
 
 ## [Notebooks](notebooks)
 
@@ -28,7 +28,7 @@ The script is divided into 7 notebooks:
     - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
     - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff), [BIO4 (ESM 12d)](outputs/ESM_12d.tiff), [NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
     
-4. [Run model](notebooks/04_Run_model.ipynb): runs the stan model
+4. [Run model](notebooks/04_Run_model.ipynb): runs the [stan mode](stan_models/parabolic_iCAR.stan) 
 5. [Posterior predictions calculation](notebooks/05_Posterior_predictions_calculation.ipynb): calculates predicted climate suitability for the present environmental conditions, past (1000-8000 BP and 15 000 BP) and produces counterfactual predictions.
 6. [Model diagnostics](notebooks/06_Model_diagnostics.ipynb): produces [model summary (ESM 8)](outputs/ESM_8.csv) and the plots of model diagnostics:
     - [Traceplots of Markov's chains (ESM 7)](outputs/ESM_7.pdf)
@@ -42,3 +42,15 @@ The script is divided into 7 notebooks:
     - [Maps with posterior predictions for the present, compared against observed log area under cultivation and confidence intervals (ESM 11)](outputs/ESM_11.tiff)
     - [Maps with predictions of climate suitability over the past 8000 years (Figure 4)](outputs/Fig4.tiff)
     - [Predicted log area under cultivation for that past 8000 years, overlayed with locations containing past buckwheat record (Figure 3)](outputs/Fig3.tiff) 
+    
+## Required software:
+
+- [Stan](https://mc-stan.org/)
+- [Jupyter notebook](https://jupyter.org/) with [R kernel](https://github.com/IRkernel/IRkernel) or [GoogleColab](https://colab.research.google.com/) to open the notebooks in a browser
+- R packages:
+
+```
+install.packages(c("here","rgdal","tmap","ncdf4","stringr","raster","rioja","maptools","prettymapr","data.table","corrplot","dendextend","spdep","geosphere","data.table","RColorBrewer","viridis","rstan","ggplot2","bayesplot","grid","gridExtra","ggridges","matrixStats","rgeos","tidyr","ggbeeswarm","tmap","stringr","sf"))
+
+'''
+
