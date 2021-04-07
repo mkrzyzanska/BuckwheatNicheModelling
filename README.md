@@ -13,22 +13,30 @@ Data directory contains a dataset with the locations of fagopyrum macro and micr
 
 ## [Notebooks](notebooks)
 
-The script is divided into 5 notebooks:
+The script is divided into 7 notebooks:
 
  1. [Data extraction](notebooks/01_Data_extraction.ipynb): downloads and extract relevant datasets and prepares the following plots and tables:
      - [Buckwheat production in the world (ESM_4)](outputs/ESM_4.tiff)
      - [Buckwheat production in China (ESM 5)](outputs/ESM_5.tiff)
      - [Names of environmental predictors](outputs/01_01_Predictor_variables.csv)
      - [Fagopyrum pollen diagrams (ESM_1)](outputs/ESM_1.pdf) from the pollen database compiled by [Cao et al. 2013](https://doi.org/10.1016/j.revpalbo.2013.02.003)
-     - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1). ](outputs/Fig1.tiff)
+     - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1)](outputs/Fig1.tiff)
 2. [Predictors autocorrelation analysis](notebooks/02_Predictors_autocorrelation_analysis.ipynb): carries out the analysis of autocorrelation between environmental variables and selects predictors from the clusters of highly correlated variables. It also produces the figures showing autocorrelation:
     - [Correlation plot for environmental variables](outputs/02_02_Predictors_corrplot.tiff)
     - [Dendrogram with selected variables highlited (ESM 6)](outputs/ESM_6.pdf)
-3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of environmnetla conditions for China:
+3. [Data preparation](notebooks/03_Data_preparation.ipynb): puts the data into a format required by the model and produces the maps of environmnetlal conditions for China:
     - [Present environmental conditions (ESM 12a)](outputs/ESM_12a.tiff)
-    - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff),[BIO4 (ESM 12d)](outputs/ESM_12d.tiff),[NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
+    - Past environmental conditions for 1000-8000 BP: [BI09 (ESM 12b)](outputs/ESM_12b.tiff), [BIO10 (ESM 12c)](outputs/ESM_12c.tiff), [BIO4 (ESM 12d)](outputs/ESM_12d.tiff), [NPP (ESM 12e)](outputs/ESM_12e.tiff), [BIO17 (ESM 12f)](outputs/ESM_12f.tiff)
     
-4. [Run model](notebooks/04_Run_model): runs the stun model
+4. [Run model](notebooks/04_Run_model.ipynb): runs the stun model
+5. [Posterior predictions calculation](notebooks/05_Posterior_predictions_calculation.ipynb): calculates predicted climate suitability for the present environmental conditions, past (1000-8000 BP and 15 000 BP) and produces counterfactual predictions.
+6. [Model diagnostics](notebooks/06_Model_diagnostics.ipynb): produces [model summary (ESM 8)](outputs/ESM_8.csv) and the plots of model diagnostics:
+    - [Traceplots of Markov's chains (ESM 7)](outputs/ESM_7.pdf)
+    - [Parameter estimates](outputs/06_01_Parameters_posterior.tiff) and their [density plot](06_02_Parameters_posterior_density.tiff)
+    - [Parameter pairs plot](outputs/06_03_Pairs_plot.tiff)
+    - [Counterfactual plots (Figure 2)](outputs/Fig2.tiff)
+    - [Posterior predictions check (ESM 10](outputs/ESM_10.pdf)
+    
 
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
