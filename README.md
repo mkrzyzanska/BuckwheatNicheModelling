@@ -33,7 +33,7 @@ The script is divided into 7 notebooks:
 6. [Model diagnostics](notebooks/06_Model_diagnostics.ipynb): produces [model summary (ESM 8)](outputs/ESM_8.csv) and the plots of model diagnostics:
     - [Traceplots of Markov's chains (ESM 7)](outputs/ESM_7.pdf)
     - [Parameter estimates](outputs/06_01_Parameters_posterior.tiff) and their [density plot](06_02_Parameters_posterior_density.tiff)
-    - [Parameter pairs plot](outputs/06_03_Pairs_plot.tiff)
+    - Parameter pairs plot
     - [Counterfactual plots (Figure 2)](outputs/Fig2.tiff)
     - [Posterior predictions check (ESM 10](outputs/ESM_10.pdf)
     
