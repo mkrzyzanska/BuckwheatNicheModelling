@@ -13,6 +13,11 @@ Data directory contains a dataset with the locations of fagopyrum macro and micr
 
 ## [Notebooks]
 
+The script is divided into 5 notebooks:
+
+ 1. [Data extraction](notebooks/Data_extraction): downloads and extract relevant datasets and prepares the following plots:
+     - [Buckwheat production in the world (ESM_4)](outputs/ESM_4.tiff)
+
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
  Codes and data for preparing Buckwheat Species Distribution Models for China
