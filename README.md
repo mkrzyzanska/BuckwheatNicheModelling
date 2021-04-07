@@ -9,7 +9,9 @@ The repository is organised into four main directories: [data](data), [notebooks
 
 ## [Data](data)
 
-Data directory contains a dataset with the locations of fagopyrum macro and micro remains from China [ESM_2](data/ESM_2), based on [Hunt et al. 2018](https://doi.org/10.1007/s00334-017-0649-4)  In addition to that ([ESM 3](data/ESM_3.pdf)) contains a full list of references to the original publications in which those were publisehd.
+Data directory contains a dataset with the locations of fagopyrum macro and micro remains from China [ESM_2](data/ESM_2.csv), based on [Hunt et al. 2018](https://doi.org/10.1007/s00334-017-0649-4)  In addition to that ([ESM 3](data/ESM_3.pdf)) contains a full list of references to the original publications in which those were publisehd.
+
+## [Notebooks]
 
 csv file with the locations and matadata for buck macro and microfossils found in China 
 
