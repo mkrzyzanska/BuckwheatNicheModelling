@@ -1,10 +1,2 @@
-data/buckwheat_production/*
-data/environmental/*
 raw_data/*
-outputs/models/*
-outputs/old/*
-manuscript/*
-
-
-
 *.ini
