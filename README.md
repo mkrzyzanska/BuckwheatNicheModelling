@@ -41,4 +41,4 @@ The script is divided into 7 notebooks:
     - [Distribution of prediction errors and confidence intervals (ESM 9)](outputs/ESM_9.pdf)
     - [Maps with posterior predictions for the present, compared against observed log area under cultivation and confidence intervals (ESM 11)](outputs/ESM_11.tiff)
     - [Maps with predictions of climate suitability over the past 8000 years (Figure 4)](outputs/Fig4.tiff)
-    - [Predicted log area under cultivation for that past 8000 years, overlayed with locations containing past buckwheat record (Figure 3)](outptus/Fig3.tiff) 
+    - [Predicted log area under cultivation for that past 8000 years, overlayed with locations containing past buckwheat record (Figure 3)](outputs/Fig3.tiff) 
