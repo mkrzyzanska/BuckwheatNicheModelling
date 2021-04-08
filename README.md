@@ -74,3 +74,7 @@ This research was funded by the [Leverhulme Trust Research Project Grant (ref. R
 *[@naturalearthdata.com](https://www.naturalearthdata.com/)*  
 
 **Full list of references for buckwheat archaeological records is given in [ESM 3](data/ESM_3.pdf).**
+
+## Licence
+
+[CC-BY 3.0](https://creativecommons.org/licenses/by/3.0/)
