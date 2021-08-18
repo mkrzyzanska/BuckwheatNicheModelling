@@ -1,3 +1,5 @@
 raw_data/*
+data/buckwheat_production/*
+data/environmental/*
 *.ini
 *.ipynb_checkpoints
