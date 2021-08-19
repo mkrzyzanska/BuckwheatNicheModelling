@@ -20,7 +20,7 @@ The script is divided into 7 notebooks:
      - [Buckwheat production in China (ESM 5)](outputs/ESM_5.tiff)
      - [Names of environmental predictors](outputs/01_01_Predictor_variables.csv)
      - [Fagopyrum pollen diagrams (ESM_1)](outputs/ESM_1.pdf) from the pollen database compiled by [Cao et al. 2013](https://doi.org/10.1016/j.revpalbo.2013.02.003)
-     - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1)](outputs/Fig1.tiff)
+     - [Location of sites and pollen sections in China with identifications of Fagopyrum (Figure 1)](outputs/Fig1.jpeg)
 2. [Predictors' autocorrelation analysis](notebooks/02_Predictors_autocorrelation_analysis.ipynb): carries out the analysis of autocorrelation between environmental variables and selects predictors from the clusters of highly correlated variables. It also produces the figures showing autocorrelation:
     - [Correlation plot for environmental variables](outputs/02_02_Predictors_corrplot.tiff)
     - [Dendrogram with selected variables highlighted (ESM 6)](outputs/ESM_6.pdf)
